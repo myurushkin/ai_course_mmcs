@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" width="760" height="300" font-family="IBM Plex Sans, Segoe UI, Arial, sans-serif">
+  <style>
+    .lbl { font-size: 13px; fill: #6b7580 }
+    .ttl { font-size: 14px; font-weight: 600; fill: #1a2027 }
+    .box { font-size: 14px; fill: #1a2027; font-weight: 600 }
+    .mono { font-family: "IBM Plex Mono", Consolas, monospace; font-size: 12px; fill: #1a2027 }
+    .card { fill: #fff; stroke: #d6dad4 }
+    .accent { fill: #e6efee; stroke: #0f5f63 }
+    .exit { fill: #fdf1ee; stroke: #b3412f }
+  </style>
+  <text x="0" y="16" class="ttl">Цикл агента: три действия по кругу, пока не появился ответ</text>
+
+  <rect x="40" y="48" width="180" height="70" rx="8" class="card"/>
+  <text x="130" y="76" text-anchor="middle" class="box">модель думает</text>
+  <text x="130" y="98" text-anchor="middle" class="mono">chat(messages, schemas)</text>
+
+  <rect x="290" y="48" width="180" height="70" rx="8" class="accent"/>
+  <text x="380" y="76" text-anchor="middle" class="box">наш код действует</text>
+  <text x="380" y="98" text-anchor="middle" class="mono">dispatch(call, tools)</text>
+
+  <rect x="540" y="48" width="180" height="70" rx="8" class="card"/>
+  <text x="630" y="76" text-anchor="middle" class="box">наблюдение</text>
+  <text x="630" y="98" text-anchor="middle" class="mono">role: "tool" → в историю</text>
+
+  <path d="M220 83 L288 83" stroke="#0f5f63" stroke-width="1.6" marker-end="url(#b)"/>
+  <path d="M470 83 L538 83" stroke="#0f5f63" stroke-width="1.6" marker-end="url(#b)"/>
+  <path d="M630 118 L630 150 L130 150 L130 120" fill="none" stroke="#0f5f63" stroke-width="1.6" marker-end="url(#b)"/>
+  <text x="380" y="143" text-anchor="middle" class="lbl">история растёт: каждый следующий шаг дороже предыдущего</text>
+
+  <rect x="40" y="186" width="300" height="64" rx="8" class="card"/>
+  <text x="56" y="210" class="box">выход по ответу</text>
+  <text x="56" y="234" class="mono">не reply.tool_calls → возвращаем текст</text>
+
+  <rect x="420" y="186" width="300" height="64" rx="8" class="exit"/>
+  <text x="436" y="210" class="box">выход по лимиту шагов</text>
+  <text x="436" y="234" class="mono">шаги кончились → ответа нет, но есть журнал</text>
+
+  <path d="M130 120 L130 184" stroke="#6b7580" stroke-width="1.4" marker-end="url(#a2)"/>
+  <path d="M570 120 L570 184" stroke="#b3412f" stroke-width="1.4" marker-end="url(#a3)"/>
+  <text x="380" y="286" text-anchor="middle" class="lbl">Лимит шагов — не перестраховка: без него цикл крутится, пока не кончатся деньги</text>
+  <defs>
+    <marker id="b" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto"><path d="M0 0 L7 3.2 L0 6.4 z" fill="#0f5f63"/></marker>
+    <marker id="a2" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto"><path d="M0 0 L7 3.2 L0 6.4 z" fill="#6b7580"/></marker>
+    <marker id="a3" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto"><path d="M0 0 L7 3.2 L0 6.4 z" fill="#b3412f"/></marker>
+  </defs>
+</svg>

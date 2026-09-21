@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" width="760" height="300" font-family="IBM Plex Sans, Segoe UI, Arial, sans-serif">
+  <style>
+    .lbl { font-size: 13px; fill: #6b7580 }
+    .ttl { font-size: 14px; font-weight: 600; fill: #1a2027 }
+    .mono { font-family: "IBM Plex Mono", Consolas, monospace; font-size: 12.5px; fill: #1a2027 }
+    .card { fill: #fff; stroke: #d6dad4 }
+    .warn { fill: #fdf1ee; stroke: #b3412f }
+    .good { fill: #eef3ef; stroke: #0f5f63 }
+  </style>
+  <text x="0" y="16" class="ttl">Одно и то же знание: текстом его проверяет человек, объектом — программа</text>
+
+  <rect x="0" y="34" width="350" height="120" rx="8" class="warn"/>
+  <text x="16" y="56" class="lbl">ответ текстом</text>
+  <text x="16" y="82" class="mono">«В городе девятнадцать круглосуточных</text>
+  <text x="16" y="102" class="mono">аптек, но часы работы известны</text>
+  <text x="16" y="122" class="mono">далеко не у всех мест.»</text>
+  <text x="16" y="144" class="lbl">число словом, источник неизвестен, сверить нечем</text>
+
+  <rect x="410" y="34" width="350" height="120" rx="8" class="good"/>
+  <text x="426" y="56" class="lbl">ответ объектом</text>
+  <text x="426" y="80" class="mono">answer: "19 круглосуточных аптек"</text>
+  <text x="426" y="100" class="mono">number: 19.0</text>
+  <text x="426" y="120" class="mono">source_tool: "count_places"</text>
+  <text x="426" y="140" class="mono">data_gaps: ["часы известны у 40%"]</text>
+
+  <path d="M352 94 L406 94" stroke="#0f5f63" stroke-width="1.6" marker-end="url(#s)"/>
+  <text x="379" y="86" text-anchor="middle" class="lbl">схема</text>
+
+  <rect x="410" y="176" width="350" height="96" rx="8" class="card"/>
+  <text x="426" y="198" class="lbl">и сразу проверяется программой</text>
+  <text x="426" y="224" class="mono">assert answer.number == db_count(...)</text>
+  <text x="426" y="248" class="mono">assert answer.data_gaps            # не пуст</text>
+  <text x="426" y="266" class="lbl">валидация у нас, а не на слово сервису</text>
+
+  <rect x="0" y="176" width="350" height="96" rx="8" class="card"/>
+  <text x="16" y="198" class="lbl">если сервис вернул не то</text>
+  <text x="16" y="224" class="mono">pydantic ловит ошибку формы</text>
+  <text x="16" y="248" class="mono">→ одна попытка исправиться с её текстом</text>
+  <text x="16" y="266" class="lbl">тот же приём, что с ошибкой инструмента</text>
+  <defs>
+    <marker id="s" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto"><path d="M0 0 L7 3.2 L0 6.4 z" fill="#0f5f63"/></marker>
+  </defs>
+</svg>

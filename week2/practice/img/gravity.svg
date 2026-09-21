@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" font-family="IBM Plex Sans, Segoe UI, Arial, sans-serif">
+  <style>
+    .lbl { font-size: 13px; fill: #6b7580 }
+    .ttl { font-size: 14px; font-weight: 600; fill: #1a2027 }
+    .mono { font-family: "IBM Plex Mono", Consolas, monospace; font-size: 13px; fill: #1a2027 }
+    .card { fill: #fff; stroke: #d6dad4 }
+  </style>
+  <text x="0" y="16" class="ttl">Модель Хаффа: куда пойдёт житель, если рядом несколько точек</text>
+
+  <circle cx="150" cy="150" r="9" fill="#1a2027"/>
+  <text x="150" y="182" text-anchor="middle" class="lbl">квартал i</text>
+  <text x="150" y="200" text-anchor="middle" class="lbl">спрос жителей</text>
+
+  <circle cx="430" cy="90" r="16" fill="#0f5f63"/>
+  <text x="430" y="62" text-anchor="middle" class="lbl">пункт A: близко, но тесный</text>
+  <circle cx="560" cy="220" r="26" fill="#b3412f"/>
+  <text x="560" y="266" text-anchor="middle" class="lbl">пункт B: дальше, зато большой</text>
+
+  <path d="M160 145 L414 95" stroke="#0f5f63" stroke-width="1.6"/>
+  <text x="280" y="108" text-anchor="middle" class="lbl">d = 400 м</text>
+  <path d="M158 157 L536 213" stroke="#b3412f" stroke-width="1.6"/>
+  <text x="330" y="200" text-anchor="middle" class="lbl">d = 900 м</text>
+
+  <rect x="0" y="232" width="470" height="76" rx="8" class="card"/>
+  <text x="16" y="256" class="lbl">Доля квартала i, которая пойдёт в точку j:</text>
+  <text x="16" y="284" class="mono">P(i→j) = (A_j / d_ij^β) / Σ_k (A_k / d_ik^β)</text>
+  <text x="16" y="302" class="lbl">A — привлекательность точки, β — насколько людям лень идти (обычно 1.5–2)</text>
+
+  <rect x="490" y="232" width="270" height="76" rx="8" class="card"/>
+  <text x="506" y="256" class="lbl">Наше упрощение на занятии:</text>
+  <text x="506" y="284" class="mono">нагрузка = спрос / (пунктов + 1)</text>
+  <text x="506" y="302" class="lbl">A одинаковы, β = 0, радиус вместо расстояния</text>
+  <text x="380" y="30" class="lbl"> </text>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" width="760" height="330" font-family="IBM Plex Sans, Segoe UI, Arial, sans-serif">
+  <style>
+    .lbl { font-size: 13px; fill: #6b7580 }
+    .ttl { font-size: 14px; font-weight: 600; fill: #1a2027 }
+    .mono { font-family: "IBM Plex Mono", Consolas, monospace; font-size: 12.5px; fill: #1a2027 }
+    .key { font-family: "IBM Plex Mono", Consolas, monospace; font-size: 12.5px; fill: #0f5f63; font-weight: 600 }
+    .card { fill: #fff; stroke: #d6dad4 }
+    .band { fill: #eef1ee; stroke: #d6dad4 }
+  </style>
+  <text x="0" y="16" class="ttl">Один обмен с моделью: четыре сообщения и один общий id</text>
+
+  <rect x="0" y="32" width="360" height="62" rx="7" class="card"/>
+  <text x="14" y="52" class="lbl">1 · вопрос человека</text>
+  <text x="14" y="76" class="mono">{"role": "user", "content": "круглосуточные аптеки"}</text>
+
+  <rect x="0" y="106" width="360" height="104" rx="7" class="card"/>
+  <text x="14" y="126" class="lbl">2 · модель просит инструмент — текста нет</text>
+  <text x="14" y="150" class="mono">{"role": "assistant", "tool_calls": [{</text>
+  <text x="26" y="170" class="key">"id": "call_a7"<tspan class="mono">, "type": "function",</tspan></text>
+  <text x="26" y="190" class="mono">"function": {"name": "find_places", …}}]}</text>
+
+  <rect x="400" y="106" width="360" height="104" rx="7" class="band"/>
+  <text x="414" y="126" class="lbl">3 · инструмент исполняет НАШ код, не модель</text>
+  <text x="414" y="152" class="mono">find_places(kind="pharmacy", open_24_7=True)</text>
+  <text x="414" y="178" class="mono">→ "id | название | вид | адрес | часы…"</text>
+  <text x="414" y="196" class="lbl">ошибка тоже возвращается текстом, а не падает</text>
+
+  <rect x="400" y="222" width="360" height="62" rx="7" class="card"/>
+  <text x="414" y="242" class="lbl">4 · результат возвращается по тому же id</text>
+  <text x="414" y="266" class="key">{"role": "tool", "tool_call_id": "call_a7", …}</text>
+
+  <rect x="0" y="222" width="360" height="62" rx="7" class="card"/>
+  <text x="14" y="242" class="lbl">5 · следующий ответ модели — уже текст для человека</text>
+  <text x="14" y="266" class="mono">{"role": "assistant", "content": "В городе 19…"}</text>
+
+  <path d="M180 94 L180 106" stroke="#6b7580" stroke-width="1.4" marker-end="url(#a)"/>
+  <path d="M360 158 L400 158" stroke="#6b7580" stroke-width="1.4" marker-end="url(#a)"/>
+  <path d="M580 210 L580 222" stroke="#6b7580" stroke-width="1.4" marker-end="url(#a)"/>
+  <path d="M400 253 L360 253" stroke="#6b7580" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="380" y="316" text-anchor="middle" class="lbl">Перепутать id нельзя: сервис ответит «no tool call found for call_id»</text>
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto">
+      <path d="M0 0 L7 3.2 L0 6.4 z" fill="#6b7580"/>
+    </marker>
+  </defs>
+</svg>
